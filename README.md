@@ -26,6 +26,7 @@ This project mirrors real-world campus design principles and includes full docum
 ## Network Diagram  
 <img width="1045" height="930" alt="image" src="https://github.com/user-attachments/assets/18d0f918-d929-41fc-8744-bb79fb9f30f9" />
 
+**Figure1:** Network Topology
 
 ## IP Addressing  
 
@@ -80,18 +81,39 @@ This project mirrors real-world campus design principles and includes full docum
 ### HSRP Testing  
 - Shutdown VLAN10 SVI on DSW1 → DSW2 becomes Active → gateway changes with minimal packet loss.  
 - Preemption restores original Active state once DSW1 returns.
+  
+<img width="551" height="109" alt="image" src="https://github.com/user-attachments/assets/5137d83f-d023-4160-8bf9-7ac8e58155f7" />
+
+**Figure 2:** show standby brief
+
 
 ### EtherChannel Testing  
 - Removed one EtherChannel member → no traffic loss.  
 - Removed entire Port-Channel → OSPF reroutes via WAN routers with short convergence.
+<img width="522" height="377" alt="image" src="https://github.com/user-attachments/assets/4a4cdf76-8309-4a16-b4bb-544c53016ee2" />
+
+**Figure 3:** show etherchannel summary on DSW1
 
 ### OSPF Testing  
 - Verified OSPF neighbors on DSW1↔DSW2 and DSWs↔Routers.  
 - Confirmed VLAN routes appear across OSPF domain.  
 - Ensured default route was properly propagated or originated.
+<img width="583" height="425" alt="image" src="https://github.com/user-attachments/assets/4f71117e-d617-4971-8a49-b908e0bf97db" />
+
+**Figure 4:** show ip route
 
 ### Host Validation  
 - Server2022 ↔ Ubuntu (inter-VLAN) successful.  
 - Both hosts reached upstream ISP paths through correct OSPF routes.  
+<img width="1000" height="808" alt="image" src="https://github.com/user-attachments/assets/e5ba7298-fdbe-4655-a7f9-7a157c72f0c5" />
 
+**Figure 5:** Windows 2022 - tracert 192.168.56.2 (ISP gateway)
+
+<img width="950" height="398" alt="image" src="https://github.com/user-attachments/assets/07468ee5-dff8-437b-9b62-23f0dded352c" />
+**Figure 6:** Ubuntu - mtr 192.168.56.2 (ISP gateway)
+
+
+
+
+  
 
